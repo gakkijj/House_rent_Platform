@@ -1,0 +1,46 @@
+2023-05-05 15:11:34.514  INFO 31244 --- [main] com.javaclimb.houserent.Application      : Starting Application v1.0.0-SNAPSHOT on LAPTOP-HT97F4MT with PID 31244 (E:\azufang\houserent\target\houserent.jar started by gakki in E:\azufang\houserent\target)
+2023-05-05 15:11:34.566  INFO 31244 --- [main] com.javaclimb.houserent.Application      : No active profile set, falling back to default profiles: default
+2023-05-05 15:11:34.693  INFO 31244 --- [main] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-05-05 15:11:35.794  WARN 31244 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.example.ssm.rental.mapper]' package. Please check your configuration.
+2023-05-05 15:11:38.175  INFO 31244 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 9999 (http)
+2023-05-05 15:11:38.211  INFO 31244 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-05-05 15:11:38.212  INFO 31244 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.22]
+2023-05-05 15:11:38.231  INFO 31244 --- [main] o.a.catalina.core.AprLifecycleListener   : Loaded APR based Apache Tomcat Native library [1.2.32] using APR version [1.7.0].
+2023-05-05 15:11:38.232  INFO 31244 --- [main] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2023-05-05 15:11:38.232  INFO 31244 --- [main] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2023-05-05 15:11:38.303  INFO 31244 --- [main] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1n  15 Mar 2022]
+2023-05-05 15:11:41.546  INFO 31244 --- [main] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2023-05-05 15:11:41.738  INFO 31244 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-05-05 15:11:41.738  INFO 31244 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 7044 ms
+2023-05-05 15:11:42.137  INFO 31244 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2023-05-05 15:11:42.317  INFO 31244 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2023-05-05 15:11:44.257  INFO 31244 --- [main] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'taskScheduler'
+2023-05-05 15:11:44.365  INFO 31244 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 9999 (http) with context path ''
+2023-05-05 15:11:44.370  INFO 31244 --- [main] com.javaclimb.houserent.Application      : Started Application in 11.338 seconds (JVM running for 13.767)
+2023-05-05 15:11:44.373  INFO 31244 --- [main] com.javaclimb.houserent.Application      : Verio started at http://localhost:9999
+2023-05-05 15:11:55.369  INFO 31244 --- [http-nio-9999-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-05-05 15:11:55.369  INFO 31244 --- [http-nio-9999-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-05-05 15:11:55.380  INFO 31244 --- [http-nio-9999-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 10 ms
+2023-05-05 15:54:10.046  INFO 16752 --- [main] com.javaclimb.houserent.Application      : Starting Application v1.0.0-SNAPSHOT on LAPTOP-HT97F4MT with PID 16752 (E:\azufang\houserent\target\houserent.jar started by gakki in E:\azufang\houserent\target)
+2023-05-05 15:54:10.054  INFO 16752 --- [main] com.javaclimb.houserent.Application      : No active profile set, falling back to default profiles: default
+2023-05-05 15:54:10.170  INFO 16752 --- [main] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-05-05 15:54:11.150  WARN 16752 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.example.ssm.rental.mapper]' package. Please check your configuration.
+2023-05-05 15:54:12.674  INFO 16752 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 9999 (http)
+2023-05-05 15:54:12.710  INFO 16752 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-05-05 15:54:12.710  INFO 16752 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.22]
+2023-05-05 15:54:12.730  INFO 16752 --- [main] o.a.catalina.core.AprLifecycleListener   : Loaded APR based Apache Tomcat Native library [1.2.32] using APR version [1.7.0].
+2023-05-05 15:54:12.730  INFO 16752 --- [main] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2023-05-05 15:54:12.734  INFO 16752 --- [main] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2023-05-05 15:54:12.738  INFO 16752 --- [main] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1n  15 Mar 2022]
+2023-05-05 15:54:15.834  INFO 16752 --- [main] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2023-05-05 15:54:16.030  INFO 16752 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-05-05 15:54:16.030  INFO 16752 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 5856 ms
+2023-05-05 15:54:16.458  INFO 16752 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2023-05-05 15:54:16.722  INFO 16752 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2023-05-05 15:54:18.779  INFO 16752 --- [main] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'taskScheduler'
+2023-05-05 15:54:18.975  INFO 16752 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 9999 (http) with context path ''
+2023-05-05 15:54:18.983  INFO 16752 --- [main] com.javaclimb.houserent.Application      : Started Application in 9.903 seconds (JVM running for 10.577)
+2023-05-05 15:54:18.987  INFO 16752 --- [main] com.javaclimb.houserent.Application      : Verio started at http://localhost:9999
+2023-05-05 15:54:40.077  INFO 16752 --- [http-nio-9999-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-05-05 15:54:40.081  INFO 16752 --- [http-nio-9999-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-05-05 15:54:40.093  INFO 16752 --- [http-nio-9999-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 8 ms
