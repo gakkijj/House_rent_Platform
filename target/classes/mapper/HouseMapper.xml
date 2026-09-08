@@ -11,7 +11,8 @@
                 and status = #{houseSearchVO.status}
             </if>
             <if test="houseSearchVO.address!=null and houseSearchVO.address!=''">
-                and address like concat('%', #{houseSearchVO.address}, '%')
+                and (address like concat('%', #{houseSearchVO.address}, '%')
+                or title like concat('%', #{houseSearchVO.address}, '%'))
             </if>
             <if test="houseSearchVO.city!=null and houseSearchVO.city!=''">
                 and city like concat('%', #{houseSearchVO.city}, '%')

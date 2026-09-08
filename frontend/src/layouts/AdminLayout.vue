@@ -1,6 +1,7 @@
 <script setup>
-import { useRoute, useRouter } from 'vue-router'
+import { RouterView, useRoute, useRouter } from 'vue-router'
 import { session } from '../stores/session'
+import { housingApi } from '../api/housing'
 const route = useRoute()
 const router = useRouter()
 const menus = [
@@ -11,7 +12,7 @@ const menus = [
   { to: '/admin/news', label: '资讯管理', icon: '▤' },
   { to: '/admin/feedback', label: '反馈管理', icon: '✦' }
 ]
-function logout() { session.logout(); router.push('/') }
+async function logout() { try { await housingApi.logout() } finally { session.logout(); router.push('/') } }
 </script>
 
 <template>
@@ -25,7 +26,7 @@ function logout() { session.logout(); router.push('/') }
     </aside>
     <section class="admin-main">
       <header class="admin-topbar"><span>房源租赁管理</span><div><RouterLink to="/" class="text-link">查看站点</RouterLink><button class="text-link" @click="logout">退出登录</button></div></header>
-      <div class="admin-content"><slot /></div>
+      <div class="admin-content"><RouterView /></div>
     </section>
   </div>
 </template>

@@ -6,6 +6,7 @@ import HouseListView from '../views/public/HouseListView.vue'
 import HouseDetailView from '../views/public/HouseDetailView.vue'
 import AccountViews from '../views/public/AccountViews.vue'
 import NewsViews from '../views/public/NewsViews.vue'
+import OrderViews from '../views/public/OrderViews.vue'
 import AdminViews from '../views/admin/AdminViews.vue'
 import { session } from '../stores/session'
 
@@ -19,6 +20,8 @@ const router = createRouter({
     { path: '/houses', ...publicPage(HouseListView) },
     { path: '/houses/:id', ...publicPage(HouseDetailView) },
     { path: '/favorites', ...publicPage(AccountViews, { page: 'favorites' }) },
+    { path: '/orders', ...publicPage(OrderViews, { page: 'list' }) },
+    { path: '/orders/:id/agreement', ...publicPage(OrderViews, { page: 'agreement' }) },
     { path: '/feedback', ...publicPage(AccountViews, { page: 'feedback' }) },
     { path: '/login', ...publicPage(AccountViews, { page: 'login' }) },
     { path: '/register', ...publicPage(AccountViews, { page: 'register' }) },

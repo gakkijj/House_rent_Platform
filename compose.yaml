@@ -1,0 +1,48 @@
+name: houserent
+
+services:
+  mysql:
+    image: mysql:8.0.46
+    restart: unless-stopped
+    environment:
+      TZ: Asia/Shanghai
+      MYSQL_DATABASE: ${MYSQL_DATABASE:-houserent}
+      # 使用项目专属变量，避免被 Windows/终端中同名的 MYSQL_ROOT_PASSWORD 覆盖。
+      MYSQL_ROOT_PASSWORD: ${HOUSERENT_MYSQL_ROOT_PASSWORD:?请先复制 .env.example 为 .env，并填写 HOUSERENT_MYSQL_ROOT_PASSWORD}
+    command: --default-authentication-plugin=mysql_native_password
+    ports:
+      # 默认 3307 避免与当前 Windows MySQL 的 3306 冲突；应用容器始终使用内部 3306。
+      - "${MYSQL_HOST_PORT:-3307}:3306"
+    volumes:
+      - mysql-data:/var/lib/mysql
+      - ./database/init:/docker-entrypoint-initdb.d:ro
+    healthcheck:
+      test: ["CMD-SHELL", "mysqladmin ping -h localhost -p$$MYSQL_ROOT_PASSWORD --silent"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+      start_period: 20s
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    environment:
+      TZ: Asia/Shanghai
+      DB_URL: jdbc:mysql://mysql:3306/${MYSQL_DATABASE:-houserent}?serverTimezone=Asia/Shanghai&characterEncoding=utf8&useSSL=false&allowMultiQueries=true
+      DB_USERNAME: root
+      DB_PASSWORD: ${HOUSERENT_MYSQL_ROOT_PASSWORD:?请在 .env 设置 HOUSERENT_MYSQL_ROOT_PASSWORD}
+    volumes:
+      # 旧项目的图片地址固定为 /uploads/**；把宿主机上传目录持久化到该路径。
+      - ${UPLOADS_HOST_PATH:?请在 .env 设置 UPLOADS_HOST_PATH}:/root/uploads
+    ports:
+      - "${APP_PORT:-9999}:9999"
+    depends_on:
+      mysql:
+        condition: service_healthy
+
+volumes:
+  # 旧的 mysql-data 卷会保留，避免密码配置修复时误删原有数据。
+  mysql-data:
+    name: houserent_mysql_data_v2

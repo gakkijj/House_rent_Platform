@@ -18,19 +18,22 @@ npm run dev
 
 打开 `http://localhost:5173`。登录页可选择“以管理员身份体验管理台”。
 
-默认 `VITE_API_MODE=mock`，使用浏览器本地演示数据，所以收藏、预约、发布和反馈在刷新前后可演示，但不会写入旧 MySQL。
+默认使用同源的 Spring Boot API，收藏、租赁订单、发布房源和反馈都会写入旧 MySQL。仅在 `.env.local` 中显式设置 `VITE_API_MODE=mock` 时，才会启用浏览器演示数据。
 
 ## 下一阶段的 API 对接契约
 
-前端的 `src/api/housing.js` 是唯一的数据访问边界。后端改为 JSON API 后，只替换它的实现即可；页面组件不应直接访问旧 Controller。建议逐个提供：
+前端的 `src/api/housing.js` 是唯一的数据访问边界。当前 REST API 已由 Spring Boot 在 `/api/v1` 提供；页面组件不直接访问 Controller 或 JSP。
 
 | 业务 | 建议接口 |
 | --- | --- |
+| 登录/注册 | `POST /api/v1/auth/login`、`/register`、`/logout`、`GET /me` |
 | 房源检索/详情 | `GET /api/v1/houses`、`GET /api/v1/houses/{id}` |
 | 收藏 | `PUT/DELETE /api/v1/houses/{id}/favorite` |
-| 预约 | `POST /api/v1/appointments`、`GET /api/v1/appointments` |
+| 租赁订单 | `POST /api/v1/orders`、合同确认与模拟支付接口 |
 | 后台房源 | `POST/PATCH/DELETE /api/v1/admin/houses/{id}` |
 | 反馈/资讯 | `/api/v1/feedbacks`、`/api/v1/news` |
 
-Vite 已配置 `/api` 反向代理到 `http://localhost:8080`。真正接入时，需要再补 Spring Security/JWT、统一响应和 CORS/网关策略；不要让 Vue 去调用 JSP 页面。
+`npm run build` 会直接生成到 `../src/main/resources/static`；Spring Boot 从这里提供 Vue 的 `index.html` 和静态资源，Vue Router 刷新时由 `VueSpaController` 回退到入口页。Vite 开发服务器也配置了 `/api` 反向代理到 `http://localhost:9999`。
+
+旧 JSP 源文件仍保留在 `src/main/webapp/jsp`，仅作为迁移备份，已不再被 Maven 打包或运行时解析。
 # -

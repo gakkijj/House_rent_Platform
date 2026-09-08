@@ -40,6 +40,7 @@ abstract class ApiControllerSupport extends BaseController {
         view.put("email", user.getEmail());
         view.put("role", user.getRole());
         view.put("status", user.getStatus());
+        view.put("createdAt", user.getCreateTime());
         view.put("avatar", user.getUserAvatar());
         view.put("description", user.getUserDesc());
         return view;
