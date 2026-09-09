@@ -15,7 +15,7 @@ services:
       - "${MYSQL_HOST_PORT:-3307}:3306"
     volumes:
       - mysql-data:/var/lib/mysql
-      - ./database/init:/docker-entrypoint-initdb.d:ro
+      - ./infra/mysql/init:/docker-entrypoint-initdb.d:ro
     healthcheck:
       test: ["CMD-SHELL", "mysqladmin ping -h localhost -p$$MYSQL_ROOT_PASSWORD --silent"]
       interval: 5s
@@ -24,8 +24,9 @@ services:
       start_period: 20s
 
   app:
+    image: houserent-api:local
     build:
-      context: .
+      context: ./backend
       dockerfile: Dockerfile
     restart: unless-stopped
     environment:
@@ -37,10 +38,22 @@ services:
       # 旧项目的图片地址固定为 /uploads/**；把宿主机上传目录持久化到该路径。
       - ${UPLOADS_HOST_PATH:?请在 .env 设置 UPLOADS_HOST_PATH}:/root/uploads
     ports:
-      - "${APP_PORT:-9999}:9999"
+      # 仅供本地调试或 Vite 开发服务器访问；用户入口由 web 服务的 9999 端口提供。
+      - "${API_PORT:-9998}:9999"
     depends_on:
       mysql:
         condition: service_healthy
+
+  web:
+    image: houserent-web:local
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    ports:
+      - "${WEB_PORT:-9999}:80"
+    depends_on:
+      - app
 
 volumes:
   # 旧的 mysql-data 卷会保留，避免密码配置修复时误删原有数据。

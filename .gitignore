@@ -1,9 +1,9 @@
 .idea/
 *.iml
-target/
+backend/target/
 logs/
 .env
 frontend/node_modules/
 frontend/dist/
-database/init/*.sql
-!database/init/.gitkeep
+infra/mysql/init/*.sql
+!infra/mysql/init/.gitkeep
